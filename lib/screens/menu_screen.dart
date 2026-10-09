@@ -436,13 +436,13 @@ class _ModeCard extends StatelessWidget {
           Text('GAME MODE', style: Drop.label(12, theme: t)),
           const SizedBox(height: 10),
           for (final m in DropThemes.modes)
-            _modeRow(m, t),
+            _modeRow(context, m, t),
         ],
       ),
     );
   }
 
-  Widget _modeRow(DropModeDef m, DropThemeDef t) {
+  Widget _modeRow(BuildContext context, DropModeDef m, DropThemeDef t) {
     final locked = !m.free && !settings.isPro;
     final selected = settings.modeId == m.id;
     final best = settings.highScores[m.id] ?? 0;

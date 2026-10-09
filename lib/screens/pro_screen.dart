@@ -345,7 +345,7 @@ class _TipsCard extends StatelessWidget {
               ? null
               : () {
                   audio.click();
-                  store.buyTip(p!);
+                  store.buyTip(p);
                 },
           child: Container(
             padding: const EdgeInsets.symmetric(vertical: 12),
@@ -363,7 +363,7 @@ class _TipsCard extends StatelessWidget {
                 Icon(icon, color: t.accentLight, size: 24),
                 const SizedBox(height: 4),
                 Text(label, style: Drop.heading(13, theme: t)),
-                Text(ready ? p!.price : '—',
+                Text(ready ? p.price : '—',
                     style: Drop.muted(11, theme: t)),
               ],
             ),
