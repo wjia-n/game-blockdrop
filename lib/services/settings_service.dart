@@ -52,7 +52,7 @@ class DropSettings extends ChangeNotifier {
   String themeId = 'workshop';
   int blockStyle = 0;
   String modeId = DropModes.classic;
-  bool isPro = false;
+  bool isPro = true; // everything unlocked — no Pro version
   int gamesPlayed = 0;
 
   /// High score / best lines per mode id.
@@ -114,7 +114,7 @@ class DropSettings extends ChangeNotifier {
     themeId = p.getString(_kTheme) ?? 'workshop';
     blockStyle = (p.getInt(_kStyle) ?? 0).clamp(0, BlockStyles.all.length - 1);
     modeId = p.getString(_kMode) ?? DropModes.classic;
-    isPro = p.getBool(_kIsPro) ?? false;
+    isPro = true; // everything unlocked
     gamesPlayed = p.getInt(_kGames) ?? 0;
     for (final m in DropThemes.modes) {
       highScores[m.id] = p.getInt('blockdrop_high_${m.id}') ?? 0;
