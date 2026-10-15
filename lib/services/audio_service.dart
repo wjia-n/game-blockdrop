@@ -206,22 +206,6 @@ class DropAudio {
     return out;
   }
 
-  List<double> _pluckLine(List<double> freqs, double noteSecs) {
-    // Bright marimba-ish plucks.
-    final out = <double>[];
-    for (final f in freqs) {
-      final tone = _tone(f, noteSecs, harmonics: 0.5, attack: 0.004);
-      // Extra marimba body: boost the decay of the fundamental.
-      for (int i = 0; i < tone.length; i++) {
-        final t = i / _rate;
-        tone[i] += 0.4 * sin(2 * pi * f * t) * exp(-t * 9) * (i / tone.length);
-      }
-      out.addAll(tone);
-      out.addAll(List<double>.filled((_rate * 0.03).round(), 0));
-    }
-    return out;
-  }
-
   Uint8List _clip(String key, List<double> Function() build) =>
       _cache.putIfAbsent(key, () => _wav(build()));
 
