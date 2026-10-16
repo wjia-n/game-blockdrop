@@ -3,6 +3,7 @@ import '../services/audio_service.dart';
 import '../services/settings_service.dart';
 import '../theme/drop_art.dart';
 import '../theme/drop_themes.dart';
+import '../transfer/transfer_ui.dart';
 
 /// Settings: sound & music toggles, volume, player name.
 class SettingsScreen extends StatefulWidget {
@@ -73,6 +74,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
+              TransferSaveTile(gameSlug: 'blockdrop'),
                   DropPanel(
                     theme: t,
                     child: Column(
